@@ -1,86 +1,388 @@
-
-body{
+body {
   font-family: sans-serif;
   padding: 0 12px;
   background-color: #f8f9fa;
   color: #333333;
 }
+* {
+  box-sizing: border-box;
+}
 /* navbar */
-nav{
+nav {
   font-family: monospace;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-div.left{
+div.left {
   display: flex;
   align-items: center;
-  gap:8px;
+  gap: 6px;
 }
-div.right{
-  display:flex;
-  gap: 16px;
+div.right {
+  display: flex;
+  gap: 8px;
 }
-div.right button{
-  padding:12px;
-  border:none;
+div.right button {
+  padding: 8px;
+  border: none;
   border-radius: 6px;
 }
-button#signup-button{
-  background-color: #FF7A59;
+button#signup-button {
+  background-color: #ff7a59;
 }
-button#signup-button:hover{
-  background-color: #E85C41;
+button#signup-button:hover {
+  background-color: #e85c41;
 }
-button#login-button:hover{
+button#login-button:hover {
   background-color: #0056b3;
 }
-button#login-button{
-  background-color: #007BFF;
+button#login-button {
+  background-color: #007bff;
 }
-div.right button>a{
+div.right button > a {
   text-decoration: none;
-  font-size:1rem;
+  font-size: 0.7rem;
   color: #ffff;
   font-weight: bold;
 }
-img#logo{
-  width:50px;
-  flex: 0 0 50px;
+img#logo {
+  width: 30px;
+  flex: 0 0 30px;
 }
-h2#title{
-  font-size: 2rem;
-  letter-spacing: 2px;
+h2#title {
+  font-size: 1rem;
+  /* letter-spacing: 2px; */
+  flex: 0 0 fit-content;
   font-weight: bolder;
 }
 
-div.add-job-container{
+/* add a job  */
+div.add-job-container {
+  margin-top: 8px;
   width: 100%;
   background-color: #fff;
   /* padding: 8px; */
   text-align: center;
 }
-button#add-job-btn{
+button#add-job-btn {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 10px;
+  padding: 6px;
   border-radius: 6px;
   box-sizing: border-box;
   background-color: #f8f9fa;
-  font-size: 1.10rem;
-  border: 1px solid #E0E0E0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-size: 0.8rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
 }
-button#add-job-btn:hover{
-   background-color: #e9ecef;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-
+button#add-job-btn:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-span#add-symbol{
+span#add-symbol {
   vertical-align: middle;
   margin: 5px;
+}
+
+/* form to add a job */
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+}
+.overlay-active{
+  display: block;
+  z-index: 1000;
+}
+.form-container {
+  width: 80%;
+  /* height: 600px; */
+  margin: 0 auto;
+  background-color: #ffffffe7;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px;
+  display: none;
+  text-align: center;
+  z-index: 1001;
+}
+
+.form-container-display {
+  display: block;
+}
+.form-containers {
+  padding: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.one input {
+  flex: 0 0 100%;
+  padding: 8px;
+  font-size: 0.5rem;
+}
+
+.two input {
+  padding: 8px;
+  font-size: 0.5rem;
+  flex: 0 0 100%;
+}
+/* #skills {
+  flex: 70%;
+} */
+.three input {
+  flex: 0 0 100%;
+  padding: 8px;
+  font-size: 0.5rem;
+}
+.three > label {
+  font-size: 0.5rem;
+}
+.four {
+  display: flex;
+}
+.four input[type="radio"] {
+  display: none;
+}
+.four label {
+  flex: 1;
+  padding: 4px;
+  border: 2px solid #ffffffe7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+#notes {
+  width: 100%;
+  resize: none;
+}
+
+label[for = "no-reply"]{
+  background-color: #B0B0B0;
+}
+
+label[for = "applied"]{
+  background-color: #4A90E2;
+  color: #fff;
+}
+
+label[for = "interviewed"]{
+  background-color: #9B59B6;
+  color: #fff;
+}
+
+label[for = "scheduled"]{
+   background-color: #F5A623;
+}
+
+label[for = "rejected"]{
+  background-color: #E74C3C;
+  color: #fff;
+}
+
+label[for = "accepted"]{
+  background-color: #2ECC71;
+  color: #fff;
+}
+
+.four input:checked + label{
+  outline: 2px solid blue;;
+}
+
+.six button{
+  padding: 12px 24px;
+  margin-right: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+  /* font-size: 14px; */
+}
+.six #add-btn{
+  background-color: #28a745;
+  color: #FFFFFF;
+
+}
+.six #add-btn:hover{
+  background-color: #218838;
+}
+.six #cancel-btn{
+  background-color: #6c757d; 
+  color: #FFFFFF;
+}
+.six #cancel-btn:hover{
+  background-color: #5a6268;
+}
+/* Tablet */
+@media (min-width: 481px) {
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  nav {
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  div.left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  div.right {
+    display: flex;
+    gap: 16px;
+  }
+  div.right button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+  }
+  button#signup-button {
+    background-color: #ff7a59;
+  }
+  button#signup-button:hover {
+    background-color: #e85c41;
+  }
+  button#login-button:hover {
+    background-color: #0056b3;
+  }
+  button#login-button {
+    background-color: #007bff;
+  }
+  div.right button > a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #ffff;
+    font-weight: bold;
+  }
+  img#logo {
+    width: 50px;
+    flex: 0 0 50px;
+  }
+  h2#title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: bolder;
+  }
+
+  div.add-job-container {
+    width: 100%;
+    background-color: #fff;
+    /* padding: 8px; */
+    text-align: center;
+  }
+  button#add-job-btn {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    font-size: 1.1rem;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button#add-job-btn:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  span#add-symbol {
+    vertical-align: middle;
+    margin: 5px;
+  }
+
+  /* form to add a job */
+  .form-container {
+    width: 50%;
+    /* height: 600px; */
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px;
+    display: none;
+  }
+  .form-container-display {
+    display: block;
+  }
+  .form-containers {
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .one input {
+    flex: 0 0 50%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .two input {
+    /* flex: 0 0 70%; */
+    padding: 12px;
+    font-size: 1rem;
+  }
+  #salary {
+    flex: 0 0 30%;
+  }
+  #skills {
+    flex: 0 0 70%;
+  }
+  .three input {
+    flex: 0 0 50%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .three > label {
+    display: none;
+  }
+ 
+  .four input[type="radio"] {
+    display: none;
+  }
+  .four label {
+    flex: 1;
+    padding: 4px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+  }
+  #notes {
+    width: 100%;
+  }
+  .four label {
+    font-size: 1rem;
+  }
 }

@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Track Jobs</title>
-  <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-  <%- include("partials/navbar.ejs") %>
-  <div class="add-job-container">
-    <button id="add-job-btn"><span id="add-symbol">+</span>add a new job</button>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Jobs</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <%- include("partials/navbar.ejs") %>
+    <div class="add-job-container">
+      <button id="add-job-btn">
+        <span id="add-symbol">+</span>add a new job
+      </button>
+    </div>
+    <div class="overlay"></div>
+    <div class="form-container">
+      <h2>Add a new job</h2>
+      <form action="/add" method="post">
+
+        <div class="one form-containers">
+          <input type="text" placeholder="Enter company name" autofocus/>
+          <input type="text" placeholder="Enter job role" />
+        </div>
+
+        <div class="two form-containers">
+          <input type="text" placeholder="skills eg:html/css.js,java" name="skills" id="skills"/>
+          <input type="text" placeholder="salary" name="salary" id="salary"/>
+        </div>
+
+        <div class="three form-containers">
+         
+            <label for="applied-date">Applied on:</label>
+            <input type="date" id="applied-date" />
+            <input type="text" placeholder="Applied at eg:linkdin/noukari" />
+          
+        </div>
+
+        <div class="four form-containers">
+          <!-- <p>Status of job:</p> -->
+          <input type="radio" name="status" value="red" id="no-reply" />
+          <label for="no-reply">No reply</label>
+
+          <input type="radio" name="status" id="applied" />
+          <label for="applied">Applied</label>
+
+          <input type="radio" name="status" id="scheduled" />
+          <label for="scheduled">Scheduled</label>
+
+          <input type="radio" name="status" id="interviewed" />
+          <label for="interviewed">Interviewed</label>
+
+          <input type="radio" name="status" id="accepted" />
+          <label for="accepted">Accepted</label>
+
+          <input type="radio" name="status" id="rejected" />
+          <label for="rejected">Rejected</label>
+          
+        </div>
+
+        <div class="five form-containers">
+          <textarea name="notes" id="notes" placeholder="notes" rows="8" maxlength="500"></textarea>
+        </div>
+
+        <div class="six">
+          <button id="cancel-btn" type="button">Cancel</button>
+          <button id="add-btn">Add</button>
+        </div>
+      </form>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
