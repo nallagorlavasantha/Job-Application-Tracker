@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="/styles/authentication.css" />
+  </head>
+  <body data-page="signup">
+    <form action="/signup" method="post" id="signup">
+      <h1>Job Tracker</h1>
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="username" placeholder="Email" required />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        minlength="8"
+        required
+      />
+
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        required
+      />
+
+      <p class="confirm-password-message">Passwords must be same</p>
+
+      <div class="buttons-wrapper">
+        <button type="button" id="cancel-btn">Cancel</button>
+        <button type="submit" id="action-btn">Signup</button>
+      </div>
+    </form>
+    <script src="/scripts/authentication.js"></script>
+  </body>
+</html>

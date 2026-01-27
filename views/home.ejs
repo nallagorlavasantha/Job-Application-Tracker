@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Track Jobs</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <%- include("partials/navbar.ejs") %>
+    <nav>
+      <div class="left">
+        <img src="/assets/desk.png" alt="office desk" id="logo" />
+        <h2 id="title">Job Tracker</h2>
+      </div>
+      <div class="right">
+        <button id="signup-button"><a href="/jobTracker/signup">Signup</a></button>
+        <button id="login-button"><a href="/jobTracker/login">Login</a></button>
+      </div>
+    </nav>
     <div class="add-job-container">
       <button id="add-job-btn">
         <span id="add-symbol">+</span>add a new job
@@ -17,23 +26,25 @@
     <div class="form-container">
       <h2>Add a new job</h2>
       <form action="/add" method="post">
-
         <div class="one form-containers">
-          <input type="text" placeholder="Enter company name" autofocus/>
+          <input type="text" placeholder="Enter company name" autofocus />
           <input type="text" placeholder="Enter job role" />
         </div>
 
         <div class="two form-containers">
-          <input type="text" placeholder="skills eg:html/css.js,java" name="skills" id="skills"/>
-          <input type="text" placeholder="salary" name="salary" id="salary"/>
+          <input
+            type="text"
+            placeholder="skills eg:html/css.js,java"
+            name="skills"
+            id="skills"
+          />
+          <input type="text" placeholder="salary" name="salary" id="salary" />
         </div>
 
         <div class="three form-containers">
-         
-            <label for="applied-date">Applied on:</label>
-            <input type="date" id="applied-date" />
-            <input type="text" placeholder="Applied at eg:linkdin/noukari" />
-          
+          <label for="applied-date">Applied on:</label>
+          <input type="date" id="applied-date" />
+          <input type="text" placeholder="Applied at eg:linkdin/noukari" />
         </div>
 
         <div class="four form-containers">
@@ -55,11 +66,16 @@
 
           <input type="radio" name="status" id="rejected" />
           <label for="rejected">Rejected</label>
-          
         </div>
 
         <div class="five form-containers">
-          <textarea name="notes" id="notes" placeholder="notes" rows="8" maxlength="500"></textarea>
+          <textarea
+            name="notes"
+            id="notes"
+            placeholder="notes"
+            rows="8"
+            maxlength="500"
+          ></textarea>
         </div>
 
         <div class="six">
@@ -68,6 +84,6 @@
         </div>
       </form>
     </div>
-    <script src="scripts/script.js"></script>
+    <script src="/scripts/script.js"></script>
   </body>
 </html>
