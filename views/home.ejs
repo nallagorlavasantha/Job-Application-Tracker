@@ -12,10 +12,17 @@
         <img src="/assets/desk.png" alt="office desk" id="logo" />
         <h2 id="title">Job Tracker</h2>
       </div>
-      <div class="right">
+      <% if(locals.user){%>
+        <div class="right">
+        <p><%= user.name %></p>
+      </div>
+      <% } else{ %>
+         <div class="right">
         <button id="signup-button"><a href="/jobTracker/signup">Signup</a></button>
         <button id="login-button"><a href="/jobTracker/login">Login</a></button>
       </div>
+      <% } %>
+     
     </nav>
     <div class="add-job-container">
       <button id="add-job-btn">
@@ -84,6 +91,9 @@
         </div>
       </form>
     </div>
+    <script>
+      const user = <%- JSON.stringify(locals.user)  %> 
+    </script>
     <script src="/scripts/script.js"></script>
   </body>
 </html>

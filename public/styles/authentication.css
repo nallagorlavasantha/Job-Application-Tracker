@@ -72,3 +72,12 @@ form input{
 .confirm-password-message-active{
   visibility: visible;
 }
+
+/* login */
+.login-message{
+  color: red;
+  display: none;
+}
+.login-message-active{
+  display: block;
+}

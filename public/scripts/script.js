@@ -16,3 +16,5 @@ cancelForm.addEventListener("click",()=>{
     formContainer.classList.remove("form-container-display");
     overlay.classList.remove("overlay-active");
 })
+
+console.log(user);

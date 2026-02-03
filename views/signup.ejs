@@ -9,7 +9,7 @@
   <body data-page="signup">
     <form action="/signup" method="post" id="signup">
       <h1>Job Tracker</h1>
-      <input type="text" name="name" placeholder="Name" required />
+      <input type="text" name="name" placeholder="Name" required minlength="2" maxlength="45"/>
       <input type="email" name="username" placeholder="Email" required />
       <input
         type="password"
